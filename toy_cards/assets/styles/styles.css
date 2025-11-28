@@ -9,10 +9,17 @@ p {
   margin: 0px;
 }
 
-#card-container {
+#cards-container {
   margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
 }
-#card-container .toy-card {
+#cards-container .card-cont {
+  height: 449px;
+}
+#cards-container .card-cont .toy-card {
   background-color: rgb(255, 145, 0);
   display: flex;
   flex-direction: column;
@@ -21,24 +28,24 @@ p {
   font-size: 12px;
   transition: 0.2s;
 }
-#card-container .toy-card:hover {
+#cards-container .card-cont .toy-card:hover {
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4039215686);
 }
-#card-container .toy-card:hover .toy-card__image img:nth-child(2) {
+#cards-container .card-cont .toy-card:hover .toy-card__image img:nth-child(2) {
   transform: translateX(-50%) scale(1.15);
   bottom: 23px;
   left: 50%;
 }
-#card-container .toy-card:hover .toy-card__description {
+#cards-container .card-cont .toy-card:hover .toy-card__description {
   border-radius: 0px;
 }
-#card-container .toy-card:hover .toy-card__unit-stats {
+#cards-container .card-cont .toy-card:hover .toy-card__unit-stats {
   height: 82.5px;
 }
-#card-container .toy-card .toy-card__image {
+#cards-container .card-cont .toy-card .toy-card__image {
   position: relative;
 }
-#card-container .toy-card .toy-card__image :nth-child(2) {
+#cards-container .card-cont .toy-card .toy-card__image :nth-child(2) {
   position: absolute;
   height: 94%;
   left: 50%;
@@ -46,23 +53,23 @@ p {
   bottom: 5px;
   transition: 0.2s;
 }
-#card-container .toy-card .toy-card__image :nth-child(1) {
+#cards-container .card-cont .toy-card .toy-card__image :nth-child(1) {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   left: 0;
   width: 100%;
 }
-#card-container .toy-card .toy-card__name {
+#cards-container .card-cont .toy-card .toy-card__name {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#card-container .toy-card .toy-card__name p {
+#cards-container .card-cont .toy-card .toy-card__name p {
   font-weight: bold;
   text-align: center;
   font-size: 18px;
 }
-#card-container .toy-card .toy-card__description {
+#cards-container .card-cont .toy-card .toy-card__description {
   background-color: #fff;
   color: #9c9c9c;
   text-align: center;
@@ -70,8 +77,9 @@ p {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   transition: 0.2s;
+  height: 55px;
 }
-#card-container .toy-card .toy-card__unit-stats {
+#cards-container .card-cont .toy-card .toy-card__unit-stats {
   display: flex;
   justify-content: space-around;
   color: #fff;
@@ -79,23 +87,23 @@ p {
   overflow: hidden;
   transition: 0.2s;
 }
-#card-container .toy-card .toy-card__unit-stats hr {
+#cards-container .card-cont .toy-card .toy-card__unit-stats hr {
   background-color: #575757;
   border: #575757;
   width: 1px;
   margin: 0px;
 }
-#card-container .toy-card .toy-card__unit-stats .one-third {
+#cards-container .card-cont .toy-card .toy-card__unit-stats .one-third {
   width: 33%;
   padding: 15px 0px;
 }
-#card-container .toy-card .toy-card__unit-stats .one-third .stat {
+#cards-container .card-cont .toy-card .toy-card__unit-stats .one-third .stat {
   display: flex;
   justify-content: center;
   font-size: 20px;
   font-weight: 500;
 }
-#card-container .toy-card .toy-card__unit-stats .one-third .stat-value {
+#cards-container .card-cont .toy-card .toy-card__unit-stats .one-third .stat-value {
   text-transform: uppercase;
   text-align: center;
 }

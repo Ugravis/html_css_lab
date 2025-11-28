@@ -8,57 +8,66 @@
   </head>
 
   <body>
-    <div id="card-container">
-      <div class="toy-card">
-        <div class="toy-card__image">
-          <img src="../assets/images/giant-bg.jpg" alt="giant-bg" />
-          <img src="../assets/images/woody.png" alt="woody" />
-        </div>
-
-        <div class="toy-card__name">
-          <p>Woody</p>
-        </div>
-
-        <div class="toy-card__description">
-          <p>Les mains en l'air ! Le shérif Woody est la pour faire régner l ordre dans la chambre d'Andy.</p>
-        </div>
-
-        <div class="toy-card__unit-stats">
-          <div class="one-third">
-            <div class="stat">25</div>
-            <div class="stat-value">Vie</div>
-          </div>
-
-          <hr>
-
-          <div class="one-third">
-            <div class="stat">22</div>
-            <div class="stat-value">Discretion</div>
-          </div>
-
-          <hr>
-
-          <div class="one-third">
-            <div class="stat">40</div>
-            <div class="stat-value">Action</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="cards-container"></div>
 
     <script>
       const tab = [
-        { "nom": "Woody", "vie": "25", "discretion": "22", "action": "40", "photo": "images/woody.png", "info": "Les mains en l'air ! Le shérif Woody est la pour faire régner l ordre dans la chambre d'Andy." },
-        { "nom": "Buzz l'éclair", "vie": "35", "discretion": "15", "action": "70", "photo": "images/buzz.png", "info": "Vers l'infini et au-delà !" },
-        { "nom": "Pil Poil", "vie": "14", "discretion": "10", "action": "60", "photo": "images/pilpoil.png", "info": "Il cherche à éliminer le grand méchant Zurg. Buzz sait voler grâce à ses ailes déployables." },
-        { "nom": "Alien", "vie": "11", "discretion": "12", "action": "10", "photo": "images/alien.png", "info": "Pas fufute mais très gentil" },
-        { "nom": "Rex", "vie": "40", "discretion": "24", "action": "50", "photo": "images/rex.png", "info": "Tout dans les muscles !" },
-        { "nom": "Jessie", "vie": "37", "discretion": "45", "action": "65", "photo": "images/jessie.png", "info": "Téméraire et intrépide ! " },
-        { "nom": "Sergent", "vie": "12", "discretion": "60", "action": "75", "photo": "images/sergent.png", "info": "Au service de tous !" },
-        { "nom": "Bayonne", "vie": "25", "discretion": "30", "action": "20", "photo": "images/bayonne.png", "info": "Tranquille et économe" },
-        { "nom": "ZigZag", "vie": "35", "discretion": "30", "action": "40", "photo": "images/zigzag.png", "info": "Toujours prêt à se plier en 4 pour Woody" },
-        { "nom": "Monsieur Patate", "vie": "18", "discretion": "35", "action": "30", "photo": "images/patate.png", "info": "Grincheux mais sympa" }
+        { "name": "Woody", "hp": "25", "discretion": "22", "action": "40", "photo": "woody.png", "info": "Les mains en l'air ! Le shérif Woody est la pour faire régner l ordre dans la chambre d'Andy." },
+        { "name": "Buzz l'éclair", "hp": "35", "discretion": "15", "action": "70", "photo": "buzz.png", "info": "Vers l'infini et au-delà !" },
+        { "name": "Pil Poil", "hp": "14", "discretion": "10", "action": "60", "photo": "pilpoil.png", "info": "Il cherche à éliminer le grand méchant Zurg. Buzz sait voler grâce à ses ailes déployables." },
+        { "name": "Alien", "hp": "11", "discretion": "12", "action": "10", "photo": "alien.png", "info": "Pas fufute mais très gentil" },
+        { "name": "Rex", "hp": "40", "discretion": "24", "action": "50", "photo": "rex.png", "info": "Tout dans les muscles !" },
+        { "name": "Jessie", "hp": "37", "discretion": "45", "action": "65", "photo": "jessie.png", "info": "Téméraire et intrépide ! " },
+        { "name": "Sergent", "hp": "12", "discretion": "60", "action": "75", "photo": "sergent.png", "info": "Au service de tous !" },
+        { "name": "Bayonne", "hp": "25", "discretion": "30", "action": "20", "photo": "bayonne.png", "info": "Tranquille et économe" },
+        { "name": "ZigZag", "hp": "35", "discretion": "30", "action": "40", "photo": "zigzag.png", "info": "Toujours prêt à se plier en 4 pour Woody" },
+        { "name": "Monsieur Patate", "hp": "18", "discretion": "35", "action": "30", "photo": "patate.png", "info": "Grincheux mais sympa" }
       ]
+
+      const cardContainer = document.getElementById('cards-container')
+
+      tab.forEach(card => {
+        const htmlContent = `
+          <div class="card-cont">
+            <div class="toy-card">
+              <div class="toy-card__image">
+                <img src="../assets/images/giant-bg.jpg" alt="giant-bg" />
+                <img src="../assets/images/${card.photo}" alt="woody" />
+              </div>
+
+              <div class="toy-card__name">
+                <p>${card.name}</p>
+              </div>
+
+              <div class="toy-card__description">
+                <p>${card.info}</p>
+              </div>
+
+              <div class="toy-card__unit-stats">
+                <div class="one-third">
+                  <div class="stat">${card.hp}</div>
+                  <div class="stat-value">Vie</div>
+                </div>
+
+                <hr>
+
+                <div class="one-third">
+                  <div class="stat">${card.discretion}</div>
+                  <div class="stat-value">Discretion</div>
+                </div>
+
+                <hr>
+
+                <div class="one-third">
+                  <div class="stat">${card.action}</div>
+                  <div class="stat-value">Action</div>
+                </div>
+              </div>
+            </div>  
+          </div>
+        `
+        cardContainer.innerHTML += htmlContent
+      })
     </script>
   </body>
 </html>
