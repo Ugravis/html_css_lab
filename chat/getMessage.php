@@ -15,7 +15,7 @@
   $message = $_GET['message'];
 
   if ($pseudo && $message) {
-    $sql_req = "INSET INTO chat (pseudo, message) VALUES ('$pseudo', '$message')";
+    $sql_req = "INSERT INTO chat (pseudo, message) VALUES ('$pseudo', '$message')";
 
     if ($connexion->query($sql_req)) {
       echo "Success: message from {$pseudo}.";
