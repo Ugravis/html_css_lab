@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>TP formulaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style/style.css">
   </head>
 
   <body>
-    <form action="validation.php" method="post">
+    <form action="./php/validation.php" method="post" novalidate>
       <fieldset>
         <legend>Inscrivez-vous à la newsletter</legend>
 
@@ -52,14 +53,54 @@
           <span class="errors" id="email-error"></span>
         </div>
 
-        <button type="submit">Valider</button>
+        <button type="submit">Je m'abonne</button>
       </fieldset>
     </form>
+
+    <div class="success-message-box">
+      <p class="success-message"></p>
+    </div>
   </body>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
   <script>
-    $(document).ready(function() { })
+    $(document).ready(function() {
+      $('form').submit(function (event) {
+        event.preventDefault()
+
+        $('.errors').text('')
+        $('.success-message').text('')
+
+        const prenom = $('#name-input').val()
+        const email  = $('#email-input').val()
+
+        $.ajax({
+          url: './php/validation.php',
+          method: 'POST',
+          dataType: 'json',
+          data: {
+            name: prenom,
+            email: email
+          },
+          success: function (response) {
+
+            if (response === true) {
+              $('.success-message').text('Inscription réussie')
+
+            } else {
+              if (response.prenom) {
+                $('#name-error')
+                  .text(response.prenom)
+              }
+              if (response.email) {
+                $('#email-error')
+                  .text(response.email)
+              }
+            }
+          }
+        })
+      })
+    })
   </script>
 </html>
