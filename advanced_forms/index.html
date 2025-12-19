@@ -3,26 +3,58 @@
   <head>
     <meta charset="UTF-8">
     <title>TP formulaire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
-    <fieldset>
-      <legend>Inscrivez-vous à notre newsletter</legend>
+    <form action="validation.php" method="post">
+      <fieldset>
+        <legend>Inscrivez-vous à la newsletter</legend>
 
-      <div>
-        <label for="name-input">Prénom <span class="required-indicator">*</span></label>
-        <input type="text" name="name-input" id="name-input" required="true">
-        <span class="errors"></span>
-      </div>
+        <div class="input-group">
+          <label for="name-input">
+            Prénom <span class="required-indicator">*</span>
+          </label>
 
-      <div>
-        <label for="email-input">Email <span class="required-indicator">*</span></label>
-        <input type="email" name="email-input" id="email-input" required="true">
-        <span class="errors"></span>
-      </div>
+          <input
+            type="text"
+            id="name-input"
+            name="name"
+            required
+            minlength="3"
+            maxlength="15"
+            pattern="[A-Za-zÀ-ÖØ-öø-ÿ]+"
+            placeholder="Votre prénom"
+            autocomplete="given-name"
+            aria-required="true"
+            aria-describedby="name-error"
+          >
 
-      <button>Valider</button>
-    </fieldset>
+          <span class="errors" id="name-error"></span>
+        </div>
+
+        <div class="input-group">
+          <label for="email-input">
+            Email <span class="required-indicator">*</span>
+          </label>
+
+          <input
+            type="email"
+            id="email-input"
+            name="email"
+            required
+            placeholder="exemple@email.com"
+            autocomplete="email"
+            aria-required="true"
+            aria-describedby="email-error"
+          >
+
+          <span class="errors" id="email-error"></span>
+        </div>
+
+        <button type="submit">Valider</button>
+      </fieldset>
+    </form>
   </body>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
