@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TP formulaire</title>
+  </head>
+
+  <body>
+    <fieldset>
+      <legend>Inscrivez-vous à notre newsletter</legend>
+
+      <div>
+        <label for="name-input">Prénom <span class="required-indicator">*</span></label>
+        <input type="text" name="name-input" id="name-input" required="true">
+        <span class="errors"></span>
+      </div>
+
+      <div>
+        <label for="email-input">Email <span class="required-indicator">*</span></label>
+        <input type="email" name="email-input" id="email-input" required="true">
+        <span class="errors"></span>
+      </div>
+
+      <button>Valider</button>
+    </fieldset>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <script>
+    $(document).ready(function() { })
+  </script>
+</html>
